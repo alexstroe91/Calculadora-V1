@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Calculadora": {
+      "commandName": "Project",
+      "commandLineArgs": "--div 12 0"
+    }
+  }
+}
