@@ -2,7 +2,12 @@
   "profiles": {
     "Calculadora": {
       "commandName": "Project",
-      "commandLineArgs": "--div 12 0"
+      "commandLineArgs": "--div 12 2"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "environmentVariables": {},
+      "distributionName": ""
     }
   }
 }

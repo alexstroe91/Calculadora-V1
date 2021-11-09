@@ -1,9 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>Calculadora.Process.Program</StartupObject>
+    <StartupObject>Calculadora.Program</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\Calculadora\bin\Debug\net5.0\Calculadora.deps.json" Link="Calculadora.deps.json" />
+    <Content Include="..\Calculadora\bin\Debug\net5.0\Calculadora.runtimeconfig.json" Link="Calculadora.runtimeconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Calculadora\bin\Debug\net5.0\Calculadora.dll" Link="Calculadora.dll" />
+    <None Include="..\Calculadora\bin\Debug\net5.0\Calculadora.exe" Link="Calculadora.exe" />
+  </ItemGroup>
 
 </Project>
