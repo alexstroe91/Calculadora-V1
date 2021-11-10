@@ -16,4 +16,8 @@
     <None Include="..\Calculadora\bin\Debug\net5.0\Calculadora.exe" Link="Calculadora.exe" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Vinculos\" />
+  </ItemGroup>
+
 </Project>
