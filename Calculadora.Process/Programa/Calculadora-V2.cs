@@ -8,10 +8,10 @@ namespace Calculadora
 
         public static void llamarProceso(decimal num1, decimal num2, string operacion)
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo(@"F:\DAM2A\Programacion de Servicios y Procesos\PracticaCalculadora\Calculadora\Calculadora\bin\Debug\net5.0\Calculadora.exe");
+            ProcessStartInfo startInfo = new ProcessStartInfo(@".\Vinculos\Calculadora.exe");
             startInfo.Arguments = $"{operacion} {num1} {num2}";
+            startInfo.UseShellExecute = false;
             Process.Start(startInfo);
-
         }
 
         static int Main(string[] args)
@@ -65,7 +65,6 @@ namespace Calculadora
                         llamarProceso(num1, num2, argumentoOperacion);
 
                         return 0;
-
                         break;
 
                     case "d":
@@ -79,23 +78,21 @@ namespace Calculadora
                         llamarProceso(num1, num2, argumentoOperacion);
 
                         return 0;
-
                         break;
 
                     default:
 
                         throw new Exception("Opcion incorrecta");
-
                         break;
 
                 }
 
+                Console.WriteLine();
                 return 0;
 
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-
                 return 1;
             }
         }

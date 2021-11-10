@@ -7,13 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\Calculadora\bin\Debug\net5.0\Calculadora.deps.json" Link="Calculadora.deps.json" />
-    <Content Include="..\Calculadora\bin\Debug\net5.0\Calculadora.runtimeconfig.json" Link="Calculadora.runtimeconfig.json" />
+    <None Include="..\Calculadora\bin\Debug\net5.0\Calculadora.deps.json" Link="Vinculos\Calculadora.deps.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Calculadora\bin\Debug\net5.0\Calculadora.runtimeconfig.json" Link="Vinculos\Calculadora.runtimeconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\Calculadora\bin\Debug\net5.0\Calculadora.dll" Link="Calculadora.dll" />
-    <None Include="..\Calculadora\bin\Debug\net5.0\Calculadora.exe" Link="Calculadora.exe" />
+    <None Include="..\Calculadora\bin\Debug\net5.0\Calculadora.dll" Link="Vinculos\Calculadora.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Calculadora\bin\Debug\net5.0\Calculadora.exe" Link="Vinculos\Calculadora.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
