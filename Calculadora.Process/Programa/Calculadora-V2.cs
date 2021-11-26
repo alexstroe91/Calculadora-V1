@@ -6,6 +6,7 @@ namespace Calculadora
     class Program
     {
 
+        //este metodo no se utiliza
         public static void llamarProceso(decimal num1, decimal num2, string operacion)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo(@".\Vinculos\Calculadora.exe");
@@ -13,6 +14,47 @@ namespace Calculadora
             startInfo.UseShellExecute = false;
             Process.Start(startInfo);
         }
+
+        private static void CallChildProcess (String commandLine)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = @".\Vinculos\Calculadora.exe",
+                Arguments = commandLine,
+                //el hijo no puede escribir en consola
+                UseShellExecute = false,
+                //capturar los errores que genere el hijo
+                RedirectStandardError = true,
+                //todos los mensajes que haga el hijo, los captura el padre
+                RedirectStandardOutput = true
+                
+            };
+
+            //arrancar el proceso
+            using Process process = Process.Start(startInfo);
+
+            //captura las entradas de errores y la entrada de los mensajes del hijo
+            var errorReader = process.StandardError;
+            var outputWriter = process.StandardOutput;
+
+            //espera a que termine el proceso hijo
+            process.WaitForExit();
+
+            if (process.ExitCode == 0)
+            {
+                //captura el mensjae del hijo y lo muestra en pantalla
+                Console.WriteLine("El proceso finalizo con exito");
+                var resultado = outputWriter.ReadToEnd();
+                Console.WriteLine(resultado);
+            }
+            else
+            {
+                Console.WriteLine($"Se produjo un error con codigo: {process.ExitCode} ");
+            }
+
+        }
+
+        
 
         static int Main(string[] args)
         {
@@ -31,64 +73,61 @@ namespace Calculadora
                 {
                     case "s":
 
-                        Console.Write("Introduce valor para numero1 : ");
+                        Console.Write("Introduce valor para numero 1 : ");
                         num1 = Decimal.Parse(Console.ReadLine());
-                        Console.Write("Introduce valor para numero2 : ");
+                        Console.Write("Introduce valor para numero 2 : ");
                         num2 = Decimal.Parse(Console.ReadLine());
                         argumentoOperacion = "--add";
 
-                        llamarProceso(num1, num2, argumentoOperacion);
+                        //llamarProceso(num1, num2, argumentoOperacion);
+                        CallChildProcess($"{argumentoOperacion} {num1} {num2} ");
 
                         return 0;
-                        break;
 
                     case "r":
-                        Console.Write("Introduce valor para numero1 : ");
+                        Console.Write("Introduce valor para numero 1 : ");
                         num1 = Decimal.Parse(Console.ReadLine());
-                        Console.Write("Introduce valor para numero2 : ");
+                        Console.Write("Introduce valor para numero 2 : ");
                         num2 = Decimal.Parse(Console.ReadLine());
                         argumentoOperacion = "--sub";
 
-                        llamarProceso(num1, num2, argumentoOperacion);
+                        //llamarProceso(num1, num2, argumentoOperacion);
+                        CallChildProcess($"{argumentoOperacion} {num1} {num2} ");
 
                         return 0;
-                        break;
 
                     case "m":
 
-                        Console.Write("Introduce valor para numero1 : ");
+                        Console.Write("Introduce valor para numero 1 : ");
                         num1 = Decimal.Parse(Console.ReadLine());
-                        Console.Write("Introduce valor para numero2 : ");
+                        Console.Write("Introduce valor para numero 2 : ");
                         num2 = Decimal.Parse(Console.ReadLine());
                         argumentoOperacion = "--mul";
 
-                        llamarProceso(num1, num2, argumentoOperacion);
+                        //llamarProceso(num1, num2, argumentoOperacion);
+                        CallChildProcess($"{argumentoOperacion} {num1} {num2} ");
 
                         return 0;
-                        break;
 
                     case "d":
 
-                        Console.Write("Introduce valor para numero1 : ");
+                        Console.Write("Introduce valor para numero 1 : ");
                         num1 = Decimal.Parse(Console.ReadLine());
-                        Console.Write("Introduce valor para numero2 : ");
+                        Console.Write("Introduce valor para numero 2 : ");
                         num2 = Decimal.Parse(Console.ReadLine());
                         argumentoOperacion = "--div";
 
-                        llamarProceso(num1, num2, argumentoOperacion);
+                        //llamarProceso(num1, num2, argumentoOperacion);
+                        CallChildProcess($"{argumentoOperacion} {num1} {num2} ");
 
                         return 0;
-                        break;
 
                     default:
 
                         throw new Exception("Opcion incorrecta");
-                        break;
 
                 }
 
-                Console.WriteLine();
-                return 0;
 
             } catch (Exception ex)
             {

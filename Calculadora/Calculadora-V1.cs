@@ -2,7 +2,7 @@
 
 namespace Calculadora
 {
-    class calculadora1
+    class Calculadora1
     {
         static int Main(string[] args)
         {
@@ -51,7 +51,6 @@ namespace Calculadora
                         default:
                             //en el caso que el usuario no introduzca los argumentos correctamente, se lanza otra excepcion
                             throw new Exception($"--Error-- : Ninguna de los argumentos indicados es correcto: {args[1]} ");
-                            break;
 
                     }
                     // después de realizar las operaciones, se retorna 0, por que el código se ha realizado correctamente.
